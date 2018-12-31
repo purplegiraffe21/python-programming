@@ -1,14 +1,15 @@
-from numpy import *
-import matplotlib.pyplot as p 
+import numpy as np
+import matplotlib.pyplot as p
+import scipy.integrate as si
 
 # functions to plot
-x = linspace(0.0, (4 * pi), 100)
-a = linspace(0.0, 1, 5)
-y0 = (e ** (-a[0] * x)) * (cos(x))
-y1 = (e ** (-a[1] * x)) * (cos(x))
-y2 = (e ** (-a[2] * x)) * (cos(x))
-y3 = (e ** (-a[3] * x)) * (cos(x))
-y4 = (e ** (-a[4] * x)) * (cos(x))
+x = np.linspace(0.0, (4 * np.pi), 100)
+a = np.linspace(0.0, 1, 5)
+y0 = (np.e ** (-a[0] * x)) * (np.cos(x))
+y1 = (np.e ** (-a[1] * x)) * (np.cos(x))
+y2 = (np.e ** (-a[2] * x)) * (np.cos(x))
+y3 = (np.e ** (-a[3] * x)) * (np.cos(x))
+y4 = (np.e ** (-a[4] * x)) * (np.cos(x))
 
 # plot functions
 p.plot (x, y0, 'o')
@@ -25,7 +26,7 @@ p.ylabel('y - variable')
 p.title('function plot')
 
 # set axis range
-p.axis ([0.0, 4 * pi, -1.3, 1.3])
+p.axis ([0.0, 4 * np.pi, -1.3, 1.3])
 
 # turn grid on
 p.grid (True)
@@ -40,14 +41,11 @@ def integrate_(x,y):
         acc += y[i] * (x[i] - x[i - 1]) 
     return acc
 
-
-import scipy as s
-
-print(s.integrate.simps(y0, x))
-print(s.integrate.simps(y1, x))
-print(s.integrate.simps(y2, x))
-print(s.integrate.simps(y3, x))
-print(s.integrate.simps(y4, x)) 
+print(si.simps(y0, x))
+print(si.simps(y1, x))
+print(si.simps(y2, x))
+print(si.simps(y3, x))
+print(si.simps(y4, x)) 
 
 
 
