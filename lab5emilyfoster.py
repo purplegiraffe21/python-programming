@@ -5,20 +5,20 @@ import matplotlib.pyplot as p
 import scipy.integrate as si
 
 # functions to plot
-x = linspace(0.0, (4 * pi), 100)
-a = linspace(0.0, 1, 5)
-y0 = (e ** (-a[0] * x)) * (cos(x))
-y1 = (e ** (-a[1] * x)) * (cos(x))
-y2 = (e ** (-a[2] * x)) * (cos(x))
-y3 = (e ** (-a[3] * x)) * (cos(x))
-y4 = (e ** (-a[4] * x)) * (cos(x))
+x = linspace(0.0, (4 * pi), 100) # generates 100 points to plot between x axis boundaries
+a = linspace(0.0, 1, 5) # generates array [0.0, 0.25, 0.5, 0.75, 1.0]
+y0 = (e ** (-a[0] * x)) * (cos(x)) # a = 0.0
+y1 = (e ** (-a[1] * x)) * (cos(x)) # a = 0.25
+y2 = (e ** (-a[2] * x)) * (cos(x)) # a = 0.5
+y3 = (e ** (-a[3] * x)) * (cos(x)) # a = 0.75
+y4 = (e ** (-a[4] * x)) * (cos(x)) # a = 1.0
 
 # plot functions
-p.plot (x, y0, 'ko')
-p.plot (x, y1, 'ro')
-p.plot (x, y2, 'bo')
-p.plot (x, y3, 'go')
-p.plot (x, y4, 'co')
+p.plot (x, y0, 'ko') # black circles
+p.plot (x, y1, 'ro') # green circles
+p.plot (x, y2, 'bo') # blue circles
+p.plot (x, y3, 'go') # green circles
+p.plot (x, y4, 'co') # cyan circles
 
 # label axis
 p.xlabel('x')
@@ -43,6 +43,7 @@ def integrate_(x,y):
         acc += y[i] * (x[i] - x[i - 1]) 
     return acc
 
+# analytical integration method
 def analytic(xmin, xmax, a):
     result = ((e ** -(a * xmax)) / (1 + (a ** 2))) * (sin(xmax) - (a * cos(xmax))) - ((e ** -(a * xmin)) / (1 + (a ** 2))) * (sin(xmin) - (a * cos(xmin)))
     return result
@@ -55,7 +56,7 @@ print("Analytic: ", analytic(0, 4 * pi, 0.0), "\n")
 print("a - value: 0.25")
 print("My integral: ", integrate_(x, y1))
 print("SciPy's: ", si.simps(y1, x))
-print("Analytic: ", analytic(0, 4 * pi, 0.25, "\n"))
+print("Analytic: ", analytic(0, 4 * pi, 0.25), "\n")
 
 print("a - value: 0.5")
 print("My integral: ", integrate_(x, y2))
