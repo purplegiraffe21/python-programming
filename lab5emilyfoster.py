@@ -1,15 +1,17 @@
-import numpy as np
+
+
+from numpy import *
 import matplotlib.pyplot as p
 import scipy.integrate as si
 
 # functions to plot
-x = np.linspace(0.0, (4 * np.pi), 100)
-a = np.linspace(0.0, 1, 5)
-y0 = (np.e ** (-a[0] * x)) * (np.cos(x))
-y1 = (np.e ** (-a[1] * x)) * (np.cos(x))
-y2 = (np.e ** (-a[2] * x)) * (np.cos(x))
-y3 = (np.e ** (-a[3] * x)) * (np.cos(x))
-y4 = (np.e ** (-a[4] * x)) * (np.cos(x))
+x = linspace(0.0, (4 * pi), 100)
+a = linspace(0.0, 1, 5)
+y0 = (e ** (-a[0] * x)) * (cos(x))
+y1 = (e ** (-a[1] * x)) * (cos(x))
+y2 = (e ** (-a[2] * x)) * (cos(x))
+y3 = (e ** (-a[3] * x)) * (cos(x))
+y4 = (e ** (-a[4] * x)) * (cos(x))
 
 # plot functions
 p.plot (x, y0, 'o')
@@ -19,14 +21,14 @@ p.plot (x, y3, 'o')
 p.plot (x, y4, 'o')
 
 # label axis
-p.xlabel('x - variable')
-p.ylabel('y - variable')
+p.xlabel('x')
+p.ylabel('y(x)')
 
 # graph title
-p.title('function plot')
+p.title('a = 0.0 (black), 0.25 (red), 0.50 (blue), 0.75 (green), 1.0 (cyan)')
 
 # set axis range
-p.axis ([0.0, 4 * np.pi, -1.3, 1.3])
+p.axis ([0.0, 4 * pi, -1.3, 1.3])
 
 # turn grid on
 p.grid (True)
@@ -41,17 +43,34 @@ def integrate_(x,y):
         acc += y[i] * (x[i] - x[i - 1]) 
     return acc
 
-print(si.simps(y0, x))
-print(si.simps(y1, x))
-print(si.simps(y2, x))
-print(si.simps(y3, x))
-print(si.simps(y4, x)) 
+def analytic(xmin, xmax, a):
+    result = ((e ** -(a * xmax)) / (1 + (a ** 2))) * (sin(xmax) - (a * cos(xmax))) - ((e ** -(a * xmin)) / (1 + (a ** 2))) * (sin(xmin) - (a * cos(xmin)))
+    return result
 
+print("a - value: 0.0")
+print("My integral: ", integrate_(x, y0))
+print("SciPy's: ", si.simps(y0, x))
+print("Analytic: ", analytic(0, 4 * pi, 0.0))
 
+print("a - value: 0.25")
+print("My integral: ", integrate_(x, y1))
+print("SciPy's: ", si.simps(y1, x))
+print("Analytic: ", analytic(0, 4 * pi, 0.25))
 
+print("a - value: 0.5")
+print("My integral: ", integrate_(x, y2))
+print("SciPy's: ", si.simps(y2, x))
+print("Analytic: ", analytic(0, 4 * pi, 0.5))
 
+print("a - value: 0.75")
+print("My integral: ", integrate_(x, y3))
+print("SciPy's: ", si.simps(y3, x))
+print("Analytic: ", analytic(0, 4 * pi, 0.75))
 
-
+print("a - value: 1.0")
+print("My integral: ", integrate_(x, y4))
+print("SciPy's: ", si.simps(y4, x))
+print("Analytic: ", analytic(0, 4 * pi, 1.0))
 
 
 
