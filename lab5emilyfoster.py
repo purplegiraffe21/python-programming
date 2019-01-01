@@ -14,11 +14,11 @@ y3 = (e ** (-a[3] * x)) * (cos(x))
 y4 = (e ** (-a[4] * x)) * (cos(x))
 
 # plot functions
-p.plot (x, y0, 'o')
-p.plot (x, y1, 'o')
-p.plot (x, y2, 'o')
-p.plot (x, y3, 'o')
-p.plot (x, y4, 'o')
+p.plot (x, y0, 'ko')
+p.plot (x, y1, 'ro')
+p.plot (x, y2, 'bo')
+p.plot (x, y3, 'go')
+p.plot (x, y4, 'co')
 
 # label axis
 p.xlabel('x')
