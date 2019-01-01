@@ -50,27 +50,27 @@ def analytic(xmin, xmax, a):
 print("a - value: 0.0")
 print("My integral: ", integrate_(x, y0))
 print("SciPy's: ", si.simps(y0, x))
-print("Analytic: ", analytic(0, 4 * pi, 0.0))
+print("Analytic: ", analytic(0, 4 * pi, 0.0), "\n")
 
 print("a - value: 0.25")
 print("My integral: ", integrate_(x, y1))
 print("SciPy's: ", si.simps(y1, x))
-print("Analytic: ", analytic(0, 4 * pi, 0.25))
+print("Analytic: ", analytic(0, 4 * pi, 0.25, "\n"))
 
 print("a - value: 0.5")
 print("My integral: ", integrate_(x, y2))
 print("SciPy's: ", si.simps(y2, x))
-print("Analytic: ", analytic(0, 4 * pi, 0.5))
+print("Analytic: ", analytic(0, 4 * pi, 0.5), "\n")
 
 print("a - value: 0.75")
 print("My integral: ", integrate_(x, y3))
 print("SciPy's: ", si.simps(y3, x))
-print("Analytic: ", analytic(0, 4 * pi, 0.75))
+print("Analytic: ", analytic(0, 4 * pi, 0.75), "\n")
 
 print("a - value: 1.0")
 print("My integral: ", integrate_(x, y4))
 print("SciPy's: ", si.simps(y4, x))
-print("Analytic: ", analytic(0, 4 * pi, 1.0))
+print("Analytic: ", analytic(0, 4 * pi, 1.0), "\n")
 
 
 
